@@ -1,7 +1,7 @@
 
 # Booking System API
 
-A Spring Boot-based hotel room booking API with JWT authentication, Redis caching, pagination, and Quartz job scheduling.
+A Spring Boot-based room booking API with JWT authentication, Redis caching, pagination, and Quartz job scheduling.
 
 ---
 
@@ -112,6 +112,10 @@ Password: admin123
 - `POST /api/auth/login` → returns JWT
 - Use JWT in `Authorization: Bearer <token>` header for secured routes
 
+---
+## Database Diagram By draw.io
+- `file: booking_system.drawio`
+- `You can open it using draw.io.`
 ---
 
 ## API Docs

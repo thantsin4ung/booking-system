@@ -1,0 +1,37 @@
+<mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" background="none" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="node0" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;booking&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; created_at: datetime(6)&lt;br/&gt; created_by: bigint&lt;br/&gt; is_active: bit(1)&lt;br/&gt; last_modified_by: bigint&lt;br/&gt; updated_at: datetime(6)&lt;br/&gt; check_in_date: date&lt;br/&gt; check_out_date: date&lt;br/&gt; customer_name: varchar(255)&lt;br/&gt; guests: int&lt;br/&gt; notes: varchar(255)&lt;br/&gt; payment_status: enum(&amp;#39;failed&amp;#39;, &amp;#39;paid&amp;#39;, &amp;#39;pending&amp;#39;)&lt;br/&gt; price: double&lt;br/&gt; reference_code: varchar(255)&lt;br/&gt; status: enum(&amp;#39;cancelled&amp;#39;, &amp;#39;completed&amp;#39;, &amp;#39;confirmed&amp;#39;, &amp;#39;pending&amp;#39;)&lt;br/&gt; room_id: bigint&lt;br/&gt; user_id: bigint&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; id: bigint&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="-162" y="165" width="356" height="407" as="geometry" />
+    </mxCell>
+    <mxCell id="node1" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;room&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; available: bit(1)&lt;br/&gt; floor: int&lt;br/&gt; room_number: varchar(255)&lt;br/&gt; room_type: tinyint&lt;br/&gt; created_at: datetime(6)&lt;br/&gt; created_by: bigint&lt;br/&gt; is_active: bit(1)&lt;br/&gt; last_modified_by: bigint&lt;br/&gt; updated_at: datetime(6)&lt;br/&gt; price: double&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; id: bigint&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="27" y="-182" width="180" height="275" as="geometry" />
+    </mxCell>
+    <mxCell id="node2" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;users&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; created_at: datetime(6)&lt;br/&gt; created_by: bigint&lt;br/&gt; is_active: bit(1)&lt;br/&gt; last_modified_by: bigint&lt;br/&gt; updated_at: datetime(6)&lt;br/&gt; email: varchar(255)&lt;br/&gt; first_name: varchar(255)&lt;br/&gt; last_name: varchar(255)&lt;br/&gt; password: varchar(255)&lt;br/&gt; phone_number: varchar(255)&lt;br/&gt; role: enum(&amp;#39;admin&amp;#39;, &amp;#39;client&amp;#39;)&lt;br/&gt; username: varchar(255)&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; id: bigint&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="-178" y="-204" width="185" height="319" as="geometry" />
+    </mxCell>
+    <mxCell id="edge0" edge="1" value="" parent="1" source="node0" target="node1" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#595959;exitX=0.750;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="105" y="140" />
+          <mxPoint x="117" y="140" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="label2" parent="edge0" vertex="1" connectable="0" value="room_id:id" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="42" y="130" as="geometry" />
+    </mxCell>
+    <mxCell id="edge1" edge="1" value="" parent="1" source="node0" target="node2" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#595959;exitX=0.250;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="-73" y="140" />
+          <mxPoint x="-85" y="140" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="label8" parent="edge1" vertex="1" connectable="0" value="user_id:id" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="-144" y="130" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
