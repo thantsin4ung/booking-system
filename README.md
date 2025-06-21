@@ -1,29 +1,28 @@
 
-# 🏨 Hotel Booking System API
+# Booking System API
 
 A Spring Boot-based hotel room booking API with JWT authentication, Redis caching, pagination, and Quartz job scheduling.
 
 ---
 
-## 📌 Features
+## Features
 
 - User registration & JWT-based login
-- Admin & client role-based authorization
 - Room CRUD and availability management
 - Booking creation and history per user
-- Redis caching for performance boost
+- Redis caching
 - Auto-cancel of unconfirmed bookings (Quartz scheduler)
 - Swagger API documentation
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 | Layer              | Technology                        |
 |-------------------|-----------------------------------|
 | Backend Framework | Spring Boot 3.x                   |
 | ORM               | Spring Data JPA, Hibernate        |
-| Database          | PostgreSQL or MySQL               |
+| Database          | MySQL               |
 | Security          | Spring Security + JWT             |
 | Caching           | Redis (via Spring Cache)          |
 | Job Scheduler     | Quartz                            |
@@ -31,7 +30,7 @@ A Spring Boot-based hotel room booking API with JWT authentication, Redis cachin
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 com.tsa.dev
@@ -47,27 +46,27 @@ com.tsa.dev
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/hotel-booking-api.git
-cd hotel-booking-api
+git clone https://github.com/thantsin4ung/booking-system.git
+cd booking-system
 ```
 
 ### 2. Create the database
 
-Create a PostgreSQL or MySQL database:
+Create a MySQL database:
 
 ```sql
-CREATE DATABASE hotel_booking;
+CREATE DATABASE test_db;
 ```
 
 Update `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/hotel_booking
+spring.datasource.url=jdbc:postgresql://localhost:3306/test_db
 spring.datasource.username=your_user
 spring.datasource.password=your_password
 ```
@@ -75,8 +74,6 @@ spring.datasource.password=your_password
 ---
 
 ### 3. Start Redis Server
-
-Ensure Redis is running locally. On macOS or Linux:
 
 ```bash
 redis-server
@@ -104,12 +101,12 @@ At startup, the app creates a default admin if it doesn't exist:
 
 ```properties
 Username: admin
-Password: admin123 (or as encoded in the config)
+Password: admin123
 ```
 
 ---
 
-## 🔐 Auth Endpoints
+## Auth Endpoints
 
 - `POST /api/auth/signup`
 - `POST /api/auth/login` → returns JWT
@@ -117,7 +114,7 @@ Password: admin123 (or as encoded in the config)
 
 ---
 
-## 📘 API Docs
+## API Docs
 
 Access Swagger UI at:
 
@@ -127,16 +124,37 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
-## 🧠 Scheduled Jobs
+## Scheduled Jobs
 
 - `AutoCancelBookingJob` cancels `PENDING` bookings created >3 mins ago
-- Runs via Quartz every minute
+- Runs via Quartz every 2 minute
 
 ---
+## 📡 API Endpoints
 
-## 🧹 TODOs
+### AuthController
 
-- Room availability filtering
-- Stripe/PayPal integration
-- Email notification
-- Role-based dashboard UI (if frontend)
+| Method | Endpoint           | Description       |
+| ------ | ------------------ | ----------------- |
+| POST   | `/api/auth/signup` | Register new user |
+| POST   | `/api/auth/login`  | Authenticate user |
+
+### RoomController
+
+| Method | Endpoint                  | Description                 |
+| ------ | ------------------------- | --------------------------- |
+| POST   | `/api/user/rooms`         | Get paginated list of rooms |
+| POST   | `/api/admin/create-rooms` | Create room (Admin only)    |
+
+### BookingController
+
+| Method | Endpoint                                    | Description                    |
+| ------ | ------------------------------------------- | ------------------------------ |
+| POST   | `/api/user/bookings`                        | Create a new booking           |
+| GET    | `/api/user/bookings/{id}`                   | Get booking details by ID      |
+| DELETE | `/api/user/bookings/{id}`                   | Delete a booking               |
+| GET    | `/api/user/bookings/user/{userId}`          | Get bookings by user ID        |
+| GET    | `/api/user/bookings/get-by-status/{status}` | Get bookings by booking status |
+| GET    | `/api/user/bookings/get-all`                | Get all bookings (paginated)   |
+
+---
